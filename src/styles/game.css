@@ -215,6 +215,7 @@
   font-size: clamp(1rem, 2.2vw, 1.6rem);
   pointer-events: auto;
   user-select: text;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .world-subtitle__word {
