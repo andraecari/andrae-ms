@@ -33,6 +33,8 @@ body {
 
 button {
   font-family: inherit;
+  /* :active already provides press feedback; avoids a lingering tap flash on touch. */
+  -webkit-tap-highlight-color: transparent;
 }
 
 button:focus-visible,

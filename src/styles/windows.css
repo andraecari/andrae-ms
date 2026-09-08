@@ -101,8 +101,10 @@
     transform 0.08s ease;
 }
 
-.game-window__close:hover {
-  background: #46607d;
+@media (hover: hover) and (pointer: fine) {
+  .game-window__close:hover {
+    background: #46607d;
+  }
 }
 
 .game-window__close:active {
@@ -121,9 +123,11 @@
 }
 
 @media (max-width: 600px) {
+  /* Bottom reserve matches the mobile HUD footprint (56px button + 0.9rem offset
+     + a small gap) so the window centers in the space that's actually usable. */
   .game-window-overlay {
     padding: 0.5rem;
-    padding-bottom: calc(0.5rem + 6.5rem + env(safe-area-inset-bottom));
+    padding-bottom: calc(0.5rem + 5rem + env(safe-area-inset-bottom));
   }
 
   .game-window {
@@ -264,8 +268,10 @@
   cursor: pointer;
 }
 
-.character-tabs__tab:hover {
-  background: linear-gradient(180deg, #d5dde2 0%, #c2ccd3 100%);
+@media (hover: hover) and (pointer: fine) {
+  .character-tabs__tab:hover {
+    background: linear-gradient(180deg, #d5dde2 0%, #c2ccd3 100%);
+  }
 }
 
 .character-tabs__tab--active {
@@ -427,8 +433,10 @@
     transform 0.08s ease;
 }
 
-.quest-log__news:hover {
-  background: #ece7d6;
+@media (hover: hover) and (pointer: fine) {
+  .quest-log__news:hover {
+    background: #ece7d6;
+  }
 }
 
 .quest-log__news:active {
@@ -494,8 +502,10 @@
     box-shadow 0.08s ease;
 }
 
-.inventory-category-button:hover {
-  background: #ece7d6;
+@media (hover: hover) and (pointer: fine) {
+  .inventory-category-button:hover {
+    background: #ece7d6;
+  }
 }
 
 .inventory-category-button:active {
@@ -694,8 +704,10 @@
   cursor: pointer;
 }
 
-.project-detail__cta:hover {
-  background: linear-gradient(180deg, #48678a 0%, #33495f 100%);
+@media (hover: hover) and (pointer: fine) {
+  .project-detail__cta:hover {
+    background: linear-gradient(180deg, #48678a 0%, #33495f 100%);
+  }
 }
 
 .project-detail__cta:active {
@@ -733,8 +745,10 @@
     transform 0.08s ease;
 }
 
-.project-detail__github:hover {
-  background: #ece7d6;
+@media (hover: hover) and (pointer: fine) {
+  .project-detail__github:hover {
+    background: #ece7d6;
+  }
 }
 
 .project-detail__github:active {
@@ -784,8 +798,10 @@
   transition: transform 0.12s ease;
 }
 
-.world-map__marker:hover {
-  transform: translate(-50%, -100%) translateY(-3px);
+@media (hover: hover) and (pointer: fine) {
+  .world-map__marker:hover {
+    transform: translate(-50%, -100%) translateY(-3px);
+  }
 }
 
 .world-map__marker:focus-visible {
@@ -877,8 +893,10 @@
     transform 0.08s ease;
 }
 
-.destination-panel__close:hover {
-  background: #46607d;
+@media (hover: hover) and (pointer: fine) {
+  .destination-panel__close:hover {
+    background: #46607d;
+  }
 }
 
 .destination-panel__close:active {
@@ -985,8 +1003,10 @@
     box-shadow 0.08s ease;
 }
 
-.mail-button:hover {
-  background: linear-gradient(180deg, #f5f6f0 0%, #e9ebe1 100%);
+@media (hover: hover) and (pointer: fine) {
+  .mail-button:hover {
+    background: linear-gradient(180deg, #f5f6f0 0%, #e9ebe1 100%);
+  }
 }
 
 .mail-button:active {

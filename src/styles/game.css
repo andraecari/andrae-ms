@@ -191,13 +191,16 @@
     box-shadow 0.08s ease;
 }
 
-.hud-button:hover {
-  background: linear-gradient(180deg, #eef3f5 0%, #cbd5db 100%);
-  transform: translateY(-1px);
-}
+/* Hover effects only where a real hovering pointer exists, so taps don't stick. */
+@media (hover: hover) and (pointer: fine) {
+  .hud-button:hover {
+    background: linear-gradient(180deg, #eef3f5 0%, #cbd5db 100%);
+    transform: translateY(-1px);
+  }
 
-.hud-button:hover .hud-icon {
-  transform: scale(1.04);
+  .hud-button:hover .hud-icon {
+    transform: scale(1.04);
+  }
 }
 
 .hud-button:active {
@@ -273,19 +276,19 @@
 
 @media (max-width: 768px) {
   .hud {
-    gap: 4px;
+    gap: 10px;
   }
 
   .hud-button {
     aspect-ratio: 1;
-    height: 48px;
-    min-width: 44px;
+    height: 56px;
+    min-width: 56px;
     padding: 0;
   }
 
   .hud-icon-wrapper {
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
   }
 
   .hud-label {
