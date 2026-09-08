@@ -59,6 +59,18 @@
   image-rendering: pixelated;
 }
 
+/* Source frames all face left. */
+.player-character__frame--flipped {
+  transform: scaleX(-1);
+}
+
+/* Prone frames leave ~29% of the canvas empty below the body, so drop them by that
+   much to keep the same ground line. Uses `translate` so the flip transform still works. */
+.player-character__frame--prone {
+  --prone-ground-offset: 29%;
+  translate: 0 var(--prone-ground-offset);
+}
+
 @media (max-width: 768px) {
   .player-character {
     --player-frame-size: clamp(158px, 42vw, 196px);
@@ -247,9 +259,12 @@
   color: #12303f;
 }
 
+/* Clicking a HUD button leaves it focused; keep that invisible so pressing a
+   movement key doesn't light up the last-clicked button. Overrides the global
+   button:focus-visible outline. */
+.hud-button:focus,
 .hud-button:focus-visible {
-  outline: 2px solid #33434e;
-  outline-offset: 2px;
+  outline: none;
 }
 
 .hud-icon-wrapper {
