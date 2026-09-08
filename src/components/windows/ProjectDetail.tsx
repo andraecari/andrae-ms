@@ -10,7 +10,12 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
   return (
     <div className="project-detail">
       <div className="project-detail__main">
-        <h4 className="project-detail__name">{project.name}</h4>
+        <div className="project-detail__title-row">
+          <h4 className="project-detail__name">{project.name}</h4>
+          {project.badge && (
+            <span className="project-detail__badge">{project.badge}</span>
+          )}
+        </div>
         {project.subtitle && (
           <p className="project-detail__subtitle">{project.subtitle}</p>
         )}

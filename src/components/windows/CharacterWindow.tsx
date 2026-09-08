@@ -13,14 +13,24 @@ interface CharacterWindowProps {
 
 const stats: CharacterStat[] = [
   { label: "Curiosity", value: 10 },
-  { label: "Problem Solving", value: 8 },
-  { label: "Creativity", value: 7 },
+  { label: "Problem Solving", value: 9 },
+  { label: "Creativity", value: 9 },
   { label: "Travel", value: 8 },
-  { label: "Cooking", value: 6 },
-  { label: "People", value: 10 },
+  { label: "People", value: 9 },
+  { label: "Sleep Schedule", value: 3 },
+  { label: "Fall Damage", value: 2 },
 ];
 
 type CharacterTab = "about" | "stats";
+
+function statTier(value: number) {
+  if (value <= 3) return "low";
+  if (value <= 5) return "fair";
+  if (value <= 7) return "mid";
+  if (value === 8) return "good";
+  if (value === 9) return "great";
+  return "max";
+}
 
 const TABS: { id: CharacterTab; label: string }[] = [
   { id: "about", label: "About" },
@@ -104,8 +114,12 @@ export default function CharacterWindow({ onClose, desktop }: CharacterWindowPro
               className="character-tabpanel"
             >
               <p className="character-window__bio">
-                Short bio placeholder. This will eventually describe who I
-                am, what I care about, and how I like to build things.
+                I like figuring things out. Whether it's a problem in software, an idea 
+                I want to build, or something new to me, curiosity keeps me learning and 
+                creating. 
+                <br></br>
+                Outside of code, I love travelling, spending time with the 
+                people I care about, and firing up the BBQ for everyone.
               </p>
             </div>
           )}
@@ -122,7 +136,7 @@ export default function CharacterWindow({ onClose, desktop }: CharacterWindowPro
                   <li key={stat.label} className="stat-list__item">
                     <span className="stat-list__label">{stat.label}</span>
                     <span
-                      className="stat-list__bar"
+                      className={`stat-list__bar stat-list__bar--tier-${statTier(stat.value)}`}
                       role="img"
                       aria-label={`${stat.label}: ${stat.value} out of 10`}
                     >

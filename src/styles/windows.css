@@ -112,9 +112,28 @@
   transform: translateY(1px);
 }
 
-.game-window__close:focus-visible {
-  outline: 2px solid #fdf6e3;
-  outline-offset: 2px;
+/* Clicking a game UI control leaves it focused; keep that invisible so pressing a
+   movement key doesn't highlight the last-clicked control. Selected/active states
+   still come from their own classes. Overrides the global button/a focus outline. */
+.game-window__close:focus,
+.game-window__close:focus-visible,
+.character-tabs__tab:focus,
+.character-tabs__tab:focus-visible,
+.quest-log__news:focus,
+.quest-log__news:focus-visible,
+.inventory-category-button:focus,
+.inventory-category-button:focus-visible,
+.project-detail__cta:focus,
+.project-detail__cta:focus-visible,
+.project-detail__github:focus,
+.project-detail__github:focus-visible,
+.world-map__marker:focus,
+.world-map__marker:focus-visible,
+.destination-panel__close:focus,
+.destination-panel__close:focus-visible,
+.mail-button:focus,
+.mail-button:focus-visible {
+  outline: none;
 }
 
 .game-window__body {
@@ -284,18 +303,14 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-.character-tabs__tab:focus-visible {
-  outline: 2px solid #2a3740;
-  outline-offset: 2px;
-}
-
 .character-tabpanel {
   position: relative;
   background: #f0ede0;
   border: 1px solid #2a3740;
   border-radius: 0 0 6px 6px;
   padding: 0.85rem 0.9rem;
-  min-height: 11rem;
+  /* Fixed to the taller Stats view so switching tabs never resizes the window. */
+  height: 14rem;
   overflow-y: auto;
 }
 
@@ -349,6 +364,31 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
     inset 0 -2px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* Tier tint only; the border, bevel, and shading above stay untouched. */
+.stat-list__bar--tier-low .stat-list__segment--filled {
+  background: linear-gradient(180deg, #ff8a8a 0%, #ff3b3b 50%, #d90808 100%);
+}
+
+.stat-list__bar--tier-fair .stat-list__segment--filled {
+  background: linear-gradient(180deg, #ffc266 0%, #ff8a00 50%, #e85d00 100%);
+}
+
+.stat-list__bar--tier-mid .stat-list__segment--filled {
+  background: linear-gradient(180deg, #fff06a 0%, #ffd500 50%, #e6a900 100%);
+}
+
+.stat-list__bar--tier-good .stat-list__segment--filled {
+  background: linear-gradient(180deg, #d5ff69 0%, #9be51f 50%, #68b80c 100%);
+}
+
+.stat-list__bar--tier-great .stat-list__segment--filled {
+  background: linear-gradient(180deg, #91ff78 0%, #42dc35 50%, #16a522 100%);
+}
+
+.stat-list__bar--tier-max .stat-list__segment--filled {
+  background: linear-gradient(180deg, #64ff96 0%, #16dc5c 50%, #009b3d 100%);
 }
 
 .stat-list__value {
@@ -444,11 +484,6 @@
   background: #dcd6bf;
 }
 
-.quest-log__news:focus-visible {
-  outline: 2px solid #2a3740;
-  outline-offset: 2px;
-}
-
 .quest-log__news-icon {
   width: 100%;
   height: 100%;
@@ -517,11 +552,6 @@
   border-color: #5b7a9d;
   color: #12303f;
   box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.18);
-}
-
-.inventory-category-button:focus-visible {
-  outline: 2px solid #2a3740;
-  outline-offset: 2px;
 }
 
 .inventory-category-button__icon {
@@ -653,6 +683,45 @@
   font-size: 1.4rem;
 }
 
+.project-detail__title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: 0.04em;
+}
+
+.project-detail__badge {
+  font-family: var(--font-game);
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1;
+  white-space: nowrap;
+
+  padding: 0.22rem 0.45rem 0.16rem;
+
+  background: linear-gradient(
+    180deg,
+    #ffdd57 0%,
+    #f7bd1c 55%,
+    #dd9805 100%
+  );
+
+  border: 1px solid #8a5a12;
+  border-radius: 4px;
+
+  color: #fff;
+
+  text-shadow:
+    0 1px 0 rgba(90, 55, 0, 0.7),
+    0 0 2px rgba(90, 55, 0, 0.55);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -2px 0 rgba(120, 75, 0, 0.25),
+    0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
 .project-detail__subtitle {
   margin: 0.1rem 0 0;
   font-family: var(--font-body);
@@ -714,11 +783,6 @@
   transform: translateY(1px);
 }
 
-.project-detail__cta:focus-visible {
-  outline: 2px solid #fdf6e3;
-  outline-offset: 2px;
-}
-
 .project-detail {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -754,11 +818,6 @@
 .project-detail__github:active {
   transform: translateY(1px);
   background: #dcd6bf;
-}
-
-.project-detail__github:focus-visible {
-  outline: 2px solid #2a3740;
-  outline-offset: 2px;
 }
 
 .project-detail__github-icon {
@@ -802,12 +861,6 @@
   .world-map__marker:hover {
     transform: translate(-50%, -100%) translateY(-3px);
   }
-}
-
-.world-map__marker:focus-visible {
-  outline: 2px solid #fdf6e3;
-  outline-offset: 2px;
-  border-radius: 4px;
 }
 
 .world-map__marker-icon {
@@ -873,6 +926,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  letter-spacing: 0.1em;
 }
 
 .destination-panel__close {
@@ -902,11 +956,6 @@
 .destination-panel__close:active {
   transform: translateY(1px);
   background: #2a3947;
-}
-
-.destination-panel__close:focus-visible {
-  outline: 2px solid #fdf6e3;
-  outline-offset: 2px;
 }
 
 .destination-panel__body {
@@ -1013,11 +1062,6 @@
   transform: translateY(1px);
   background: linear-gradient(180deg, #dfe1d6 0%, #d0d2c6 100%);
   box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2);
-}
-
-.mail-button:focus-visible {
-  outline: 2px solid #2a3740;
-  outline-offset: 2px;
 }
 
 .mail-button__icon {

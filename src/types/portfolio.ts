@@ -32,7 +32,7 @@ export interface QuestEntry {
   newsUrl?: string;
 }
 
-export type ProjectStatus = "shipped" | "in-progress" | "archived";
+export type ProjectStatus = "completed" | "in-progress" | "archived";
 
 export interface Project {
   id: string;
@@ -42,6 +42,7 @@ export interface Project {
   technologies: string[];
   status: ProjectStatus;
   icon: string;
+  badge?: string;
   githubUrl?: string;
   liveUrl?: string;
 }
