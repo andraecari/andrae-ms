@@ -5,6 +5,7 @@ import { useDesktopWindows } from "./hooks/useDesktopWindows";
 import type { WindowDesktopProps } from "./components/windows/GameWindow";
 import GameWorld from "./components/game/GameWorld";
 import HUD from "./components/game/HUD";
+import RotateDeviceOverlay from "./components/game/RotateDeviceOverlay";
 import CharacterWindow from "./components/windows/CharacterWindow";
 import QuestWindow from "./components/windows/QuestWindow";
 import InventoryWindow from "./components/windows/InventoryWindow";
@@ -58,6 +59,7 @@ function App() {
   return (
     <div className="app">
       <GameWorld />
+      <RotateDeviceOverlay />
       <HUD
         activeWindow={isMobile ? mobileActiveWindow : null}
         onToggleWindow={handleToggleWindow}

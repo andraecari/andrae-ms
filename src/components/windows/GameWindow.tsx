@@ -47,8 +47,10 @@ export default function GameWindow({
       0,
       Math.max(window.innerWidth - rect.width, 0),
     );
+    // The map opens a bit higher than dead-center for better visual balance.
+    const verticalBias = size === "map" ? window.innerHeight * 0.05 : 0;
     const top = clamp(
-      (window.innerHeight - rect.height) / 2,
+      (window.innerHeight - rect.height) / 2 - verticalBias,
       0,
       Math.max(window.innerHeight - rect.height, 0),
     );
