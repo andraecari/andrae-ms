@@ -6,7 +6,7 @@ export const projects: Project[] = [
     name: "Andrae's 2D Game Portfolio",
     subtitle: "You're on it right now!",
     description:
-      "What started as a portfolio somehow turned into a tiny game. Walk around, hang out with Nuri, open some windows, check out where I've been, and learn a little about me along the way.",
+      "What started as a portfolio somehow turned into a tiny game. Walk around, hang out with Nuri, open menus, check out where I've been, and learn a little about me along the way.",
     technologies: ["React", "TypeScript", "Vite", "CSS"],
     status: "in-progress",
     icon: "🎮",
