@@ -120,10 +120,10 @@ export default function CharacterWindow({ onClose, desktop }: CharacterWindowPro
               className="character-tabpanel"
             >
               <p className="character-window__bio">
-                I like figuring things out. Whether it's a problem in software, an idea 
-                I want to build, or something new to me, curiosity keeps me learning and 
-                creating. 
-                <br></br>
+                I get really into things. If I have an idea or find something interesting, 
+                there’s a good chance I’ll go down a rabbit hole trying to learn everything 
+                about it or build it myself.
+                <br></br><br></br>
                 Outside of code, I love travelling, spending time with the 
                 people I care about, and firing up the BBQ for everyone.
               </p>
