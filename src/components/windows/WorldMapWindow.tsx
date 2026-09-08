@@ -7,6 +7,7 @@ import worldMapIcon from "../../assets/hud/world-map.png";
 import worldMapImage from "../../assets/world-map/world-map.png";
 import mapMarker from "../../assets/world-map/map-marker.png";
 import mapMarkerSelected from "../../assets/world-map/map-marker-selected.png";
+import { playSound } from "../../utils/sound";
 
 interface WorldMapWindowProps {
   onClose: () => void;
@@ -20,6 +21,7 @@ export default function WorldMapWindow({ onClose, desktop }: WorldMapWindowProps
     destinations.find((destination) => destination.id === selectedId) ?? null;
 
   const handleSelect = (id: string) => {
+    playSound("openMenu");
     setSelectedId((current) => (current === id ? null : id));
   };
 

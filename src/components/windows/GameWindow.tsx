@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
 import type { CSSProperties, PointerEvent as ReactPointerEvent, ReactNode } from "react";
+import { playSound } from "../../utils/sound";
 
 // Passed by App only on desktop; its absence means the legacy static/centered mobile layout.
 export interface WindowDesktopProps {
@@ -168,7 +169,10 @@ export default function GameWindow({
             type="button"
             className="game-window__close"
             aria-label="Close"
-            onClick={onClose}
+            onClick={() => {
+              playSound("closeMenu");
+              onClose();
+            }}
           >
             ✕
           </button>

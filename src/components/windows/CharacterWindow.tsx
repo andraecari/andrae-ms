@@ -5,6 +5,7 @@ import GameWindow from "./GameWindow";
 import type { WindowDesktopProps } from "./GameWindow";
 import characterIcon from "../../assets/hud/character.png";
 import andraeIdle from "../../assets/characters/andrae-idle.png";
+import { playSound } from "../../utils/sound";
 
 interface CharacterWindowProps {
   onClose: () => void;
@@ -40,6 +41,11 @@ const TABS: { id: CharacterTab; label: string }[] = [
 export default function CharacterWindow({ onClose, desktop }: CharacterWindowProps) {
   const [activeTab, setActiveTab] = useState<CharacterTab>("about");
 
+  const selectTab = (tabId: CharacterTab) => {
+    playSound("openMenu");
+    setActiveTab(tabId);
+  };
+
   const handleTabKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
     event.preventDefault();
@@ -48,7 +54,7 @@ export default function CharacterWindow({ onClose, desktop }: CharacterWindowPro
       event.key === "ArrowRight"
         ? (currentIndex + 1) % TABS.length
         : (currentIndex - 1 + TABS.length) % TABS.length;
-    setActiveTab(TABS[nextIndex].id);
+    selectTab(TABS[nextIndex].id);
   };
 
   return (
@@ -99,7 +105,7 @@ export default function CharacterWindow({ onClose, desktop }: CharacterWindowPro
                 className={`character-tabs__tab${
                   activeTab === tab.id ? " character-tabs__tab--active" : ""
                 }`}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => selectTab(tab.id)}
               >
                 {tab.label}
               </button>

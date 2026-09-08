@@ -133,6 +133,9 @@
   /* Re-enable interaction on just the text so it stays selectable despite the wrapper's pointer-events: none. */
   pointer-events: auto;
   user-select: text;
+  text-shadow:
+    0 3px 0 rgba(45, 100, 145, 0.35),
+    0 5px 8px rgba(25, 75, 120, 0.18);
 }
 
 .world-name__word {
@@ -149,7 +152,7 @@
   font-family: var(--font-game);
   font-weight: 600;
   line-height: 1;
-  color: rgba(19, 58, 92, 0.85);
+  color: rgba(35, 75, 110, 0.9);
   font-size: clamp(1rem, 2.2vw, 1.6rem);
   pointer-events: auto;
   user-select: text;

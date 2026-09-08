@@ -1,4 +1,5 @@
 import type { Destination } from "../../types/portfolio";
+import { playSound } from "../../utils/sound";
 
 interface DestinationWindowProps {
   destination: Destination;
@@ -24,7 +25,10 @@ export default function DestinationWindow({
           type="button"
           className="destination-panel__close"
           aria-label="Close"
-          onClick={onClose}
+          onClick={() => {
+            playSound("closeMenu");
+            onClose();
+          }}
         >
           ✕
         </button>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { DesktopWindowId, WindowType } from "./types/portfolio";
 import { useIsMobile } from "./hooks/useIsMobile";
 import { useDesktopWindows } from "./hooks/useDesktopWindows";
+import { playSound } from "./utils/sound";
 import type { WindowDesktopProps } from "./components/windows/GameWindow";
 import GameWorld from "./components/game/GameWorld";
 import HUD from "./components/game/HUD";
@@ -34,6 +35,13 @@ function App() {
   const desktopWindows = useDesktopWindows();
 
   const handleToggleWindow = (windowId: Exclude<WindowType, null>) => {
+    const isOpen = isMobile
+      ? mobileActiveWindow === windowId
+      : desktopWindows.windows[windowId].open;
+    playSound(
+      !isOpen && windowId === "inventory" ? "inventory" : "openMenu",
+    );
+
     if (isMobile) {
       setMobileActiveWindow((current) =>
         current === windowId ? null : windowId,

@@ -7,6 +7,7 @@ import ProjectDetail from "./ProjectDetail";
 import inventoryIcon from "../../assets/hud/inventory.png";
 import skillsCategoryIcon from "../../assets/inventory/inventory-skills.png";
 import projectsCategoryIcon from "../../assets/inventory/inventory-projects.png";
+import { playSound } from "../../utils/sound";
 
 interface InventoryWindowProps {
   onClose: () => void;
@@ -46,7 +47,10 @@ export default function InventoryWindow({ onClose, desktop }: InventoryWindowPro
                   ? " inventory-category-button--active"
                   : ""
               }`}
-              onClick={() => setActiveCategory(category.id)}
+              onClick={() => {
+                playSound("openMenu");
+                setActiveCategory(category.id);
+              }}
             >
               <img
                 className="inventory-category-button__icon"
