@@ -81,23 +81,37 @@ export default function PlayerCharacter() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (isTypingTarget(event.target)) return;
       const key = event.key.toLowerCase();
-      if (key === "a") {
+      if (key === "a" || key === "arrowleft") {
+        event.preventDefault();
         keysRef.current.left = true;
-      } else if (key === "d") {
+      } else if (key === "d" || key === "arrowright") {
+        event.preventDefault();
         keysRef.current.right = true;
-      } else if (key === "s") {
+      } else if (key === "s" || key === "arrowdown") {
+        event.preventDefault();
         keysRef.current.down = true;
-      } else if (key === "w" || event.code === "Space") {
+      } else if (
+        key === "w" || 
+        key === "arrowup" ||
+        event.code === "Space"
+      ) {
         event.preventDefault();
         if (!event.repeat) jumpRequestRef.current = true;
       }
     };
 
     const handleKeyUp = (event: KeyboardEvent) => {
+      if (isTypingTarget(event.target)) return;
+
       const key = event.key.toLowerCase();
-      if (key === "a") keysRef.current.left = false;
-      else if (key === "d") keysRef.current.right = false;
-      else if (key === "s") keysRef.current.down = false;
+
+      if (key === "a" || key === "arrowleft") {
+        keysRef.current.left = false;
+      } else if (key === "d" || key === "arrowright") {
+        keysRef.current.right = false;
+      } else if (key === "s" || key === "arrowdown") {
+        keysRef.current.down = false;
+      }
     };
 
     const handleBlur = () => {
