@@ -1,0 +1,308 @@
+.game-world {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #08213a;
+}
+
+.world-background {
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-desktop);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  image-rendering: pixelated;
+}
+
+@media (max-width: 768px) {
+  .world-background {
+    background-image: var(--bg-mobile);
+  }
+}
+
+.world-stage {
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  z-index: 1;
+}
+
+.player-character {
+  width: clamp(110px, 14vw, 150px);
+  height: auto;
+  align-self: flex-end;
+  image-rendering: pixelated;
+}
+
+@media (max-width: 768px) {
+  .player-character {
+    width: clamp(105px, 28vw, 130px);
+    transform: translateY(-10px);
+  }
+}
+
+.pet-sprite {
+  width: clamp(56px, 7vw, 82px);
+  height: clamp(56px, 7vw, 82px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+.pet-sprite__frame {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+@media (max-width: 768px) {
+  .pet-sprite {
+    width: clamp(56px, 18vw, 72px);
+    height: clamp(56px, 18vw, 72px);
+    transform: translateY(-10px);
+  }
+}
+
+.world-intro {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.world-name {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.35em;
+  font-family: var(--font-game);
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(3rem, 8vw, 8rem);
+  /* Re-enable interaction on just the text so it stays selectable despite the wrapper's pointer-events: none. */
+  pointer-events: auto;
+  user-select: text;
+}
+
+.world-name__word {
+  white-space: nowrap;
+}
+
+.world-subtitle {
+  margin: -0.75em 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 0.35em;
+  font-family: var(--font-game);
+  font-weight: 600;
+  line-height: 1;
+  color: rgba(19, 58, 92, 0.85);
+  font-size: clamp(1rem, 2.2vw, 1.6rem);
+  pointer-events: auto;
+  user-select: text;
+}
+
+.world-subtitle__word {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .world-intro {
+    top: 6%;
+    left: auto;
+    right: 0;
+    transform: none;
+    padding: 0 1.25rem 0 0;
+    align-items: flex-end;
+    max-width: calc(100% - 1.5rem);
+  }
+
+  .world-name {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+    line-height: 0.72;
+    font-size: clamp(3.5rem, 19vw, 6rem);
+  }
+
+  .world-subtitle {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+    margin: 0.2em 0 0;
+    line-height: 0.85;
+    font-size: clamp(1.1rem, 4.6vw, 1.6rem);
+  }
+}
+
+.hud {
+  position: absolute;
+  left: 50%;
+  bottom: calc(0.9rem + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 5px;
+}
+
+.hud-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  height: 52px;
+  padding: 0 1rem;
+  background: linear-gradient(180deg, #d5dde2 0%, #c2ccd3 100%);
+  border: 2px solid #2a3740;
+  border-radius: 7px;
+  box-shadow:
+    inset 0 1px 0 #eef3f5,
+    inset -2px -2px 0 #74838d,
+    inset 2px 0 0 #eef3f5,
+    0 2px 3px rgba(0, 0, 0, 0.35);
+  color: #202b33;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.08s ease,
+    background-color 0.08s ease,
+    box-shadow 0.08s ease;
+}
+
+.hud-button:hover {
+  background: linear-gradient(180deg, #eef3f5 0%, #cbd5db 100%);
+  transform: translateY(-1px);
+}
+
+.hud-button:hover .hud-icon {
+  transform: scale(1.04);
+}
+
+.hud-button:active {
+  transform: translateY(1px);
+  background: linear-gradient(180deg, #c2ccd3 0%, #bfcbd3 100%);
+  box-shadow:
+    inset 0 1px 0 #a9b6bd,
+    inset -1px -1px 0 #74838d,
+    0 1px 1px rgba(0, 0, 0, 0.35);
+}
+
+.hud-button--active {
+  background: linear-gradient(180deg, #bfcbd3 0%, #aeb9c1 100%);
+  box-shadow:
+    inset 0 2px 0 #8b98a1,
+    inset -1px -1px 0 #74838d,
+    0 1px 1px rgba(0, 0, 0, 0.3);
+  transform: translateY(1px);
+  border-color: #33434e;
+}
+
+.hud-button--active .hud-label {
+  color: #12303f;
+}
+
+.hud-button:focus-visible {
+  outline: 2px solid #33434e;
+  outline-offset: 2px;
+}
+
+.hud-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.hud-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  transition: transform 0.08s ease;
+}
+
+.hud-icon--quests {
+  width: 90%;
+  height: 90%;
+}
+
+.hud-label {
+  font-family: var(--font-game);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #202b33;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hud-button,
+  .hud-icon {
+    transition: none;
+  }
+
+  .hud-button:hover,
+  .hud-button--active,
+  .hud-button:active {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hud {
+    gap: 4px;
+  }
+
+  .hud-button {
+    aspect-ratio: 1;
+    height: 48px;
+    min-width: 44px;
+    padding: 0;
+  }
+
+  .hud-icon-wrapper {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hud-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .hud-button--map {
+    display: none;
+  }
+}

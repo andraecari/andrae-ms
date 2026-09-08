@@ -1,0 +1,60 @@
+import type { Project } from "../types/portfolio";
+
+export const projects: Project[] = [
+  {
+    id: "team-scheduler",
+    name: "TeamScheduler",
+    description:
+      "A placeholder description for a scheduling tool that helps teams coordinate shifts and availability.",
+    technologies: ["React", "TypeScript", "Node.js"],
+    status: "in-progress",
+    icon: "📦",
+    githubUrl: "https://github.com/your-username/team-scheduler",
+    liveUrl: undefined,
+  },
+  // TEMP TEST DATA — sample entries for scroll testing only, replace/remove before launch.
+  {
+    id: "temp-test-1",
+    name: "Sample Project One",
+    subtitle: "Placeholder subtitle",
+    description: "Temporary placeholder description used only for testing the scrollable project list.",
+    technologies: ["React", "TypeScript"],
+    status: "in-progress",
+    icon: "🧪",
+    githubUrl: undefined,
+    liveUrl: undefined,
+  },
+  {
+    id: "temp-test-2",
+    name: "Sample Project Two",
+    subtitle: "Placeholder subtitle",
+    description: "Temporary placeholder description used only for testing the scrollable project list.",
+    technologies: ["FastAPI", "PostgreSQL", "Docker"],
+    status: "in-progress",
+    icon: "🧪",
+    githubUrl: undefined,
+    liveUrl: undefined,
+  },
+  {
+    id: "temp-test-3",
+    name: "Sample Project Three",
+    subtitle: "Placeholder subtitle",
+    description: "Temporary placeholder description used only for testing the scrollable project list.",
+    technologies: ["Node.js", "SQL"],
+    status: "in-progress",
+    icon: "🧪",
+    githubUrl: undefined,
+    liveUrl: undefined,
+  },
+  {
+    id: "temp-test-4",
+    name: "Sample Project Four",
+    subtitle: "Placeholder subtitle",
+    description: "Temporary placeholder description used only for testing the scrollable project list.",
+    technologies: ["React", "Docker", "PostgreSQL", "TypeScript"],
+    status: "in-progress",
+    icon: "🧪",
+    githubUrl: undefined,
+    liveUrl: undefined,
+  },
+];
