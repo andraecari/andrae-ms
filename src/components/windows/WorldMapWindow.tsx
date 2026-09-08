@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 import { destinations } from "../../data/destinations";
+
 import GameWindow from "./GameWindow";
 import type { WindowDesktopProps } from "./GameWindow";
 import DestinationWindow from "./DestinationWindow";
+
 import worldMapIcon from "../../assets/hud/world-map.png";
 import worldMapImage from "../../assets/world-map/world-map.png";
 import mapMarker from "../../assets/world-map/map-marker.png";
 import mapMarkerSelected from "../../assets/world-map/map-marker-selected.png";
+
 import { playSound } from "../../utils/sound";
 
 interface WorldMapWindowProps {
@@ -14,14 +18,28 @@ interface WorldMapWindowProps {
   desktop?: WindowDesktopProps;
 }
 
-export default function WorldMapWindow({ onClose, desktop }: WorldMapWindowProps) {
+export default function WorldMapWindow({
+  onClose,
+  desktop,
+}: WorldMapWindowProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  // Preload destination images/GIFs when the World Map opens
+  useEffect(() => {
+    destinations.forEach((destination) => {
+      if (!destination.image) return;
+
+      const img = new Image();
+      img.src = destination.image;
+    });
+  }, []);
 
   const selectedDestination =
     destinations.find((destination) => destination.id === selectedId) ?? null;
 
   const handleSelect = (id: string) => {
     playSound("openMenu");
+
     setSelectedId((current) => (current === id ? null : id));
   };
 
@@ -41,14 +59,19 @@ export default function WorldMapWindow({ onClose, desktop }: WorldMapWindowProps
           alt=""
           aria-hidden="true"
         />
+
         {destinations.map((destination) => {
           const isSelected = destination.id === selectedId;
+
           return (
             <button
               key={destination.id}
               type="button"
               className="world-map__marker"
-              style={{ left: `${destination.x}%`, top: `${destination.y}%` }}
+              style={{
+                left: `${destination.x}%`,
+                top: `${destination.y}%`,
+              }}
               aria-pressed={isSelected}
               aria-label={`${destination.name}, ${destination.country}`}
               onClick={() => handleSelect(destination.id)}
@@ -62,6 +85,7 @@ export default function WorldMapWindow({ onClose, desktop }: WorldMapWindowProps
             </button>
           );
         })}
+
         {selectedDestination && (
           <DestinationWindow
             destination={selectedDestination}
