@@ -1,15 +1,15 @@
 import type { Destination } from "../types/portfolio";
 
-import torontoImage from "../assets/destinations/toronto.JPG";
+import torontoImage from "../assets/destinations/toronto.jpg";
 import montrealImage from "../assets/destinations/montreal.png";
-import calgaryImage from "../assets/destinations/banff.JPG";
+import calgaryImage from "../assets/destinations/banff.jpg";
 import nycImage from "../assets/destinations/nyc.jpg";
 import caboImage from "../assets/destinations/cabo.jpg";
 import puntaCanaImage from "../assets/destinations/dr.jpg";
 import boracayImage from "../assets/destinations/boracay.jpg";
 import taipeiImage from "../assets/destinations/taiwan.jpg";
-import japanImage from "../assets/destinations/japan.JPG";
-import seoulImage from "../assets/destinations/korea.JPG";
+import japanImage from "../assets/destinations/japan.jpg";
+import seoulImage from "../assets/destinations/korea.jpg";
 import baliImage from "../assets/destinations/bali.jpg";
 import sfImage from "../assets/destinations/sf.png";
 import vegasImage from "../assets/destinations/vegas.png";
