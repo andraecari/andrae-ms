@@ -39,7 +39,7 @@ export const projects: Project[] = [
     name: "BetGenius",
     subtitle: "Apparently the AI liked our bets.",
     description:
-      "A betting recommendation system that learns from what people bet on and finds similar users to suggest what they might like next. Somehow this idea took first place at theScore's AI Hackathon!",
+      "A betting recommendation system that learns from what people bet on and finds similar users to suggest what they might like next. This idea took first place at theScore's AI Hackathon!",
     technologies: ["Python", "TensorFlow", "Figma"],
     status: "completed",
     icon: "🧠",

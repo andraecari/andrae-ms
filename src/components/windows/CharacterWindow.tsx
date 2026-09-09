@@ -14,10 +14,10 @@ interface CharacterWindowProps {
 
 const stats: CharacterStat[] = [
   { label: "Curiosity", value: 10 },
-  { label: "Problem Solving", value: 9 },
+  { label: "Problem Solving", value: 10 },
   { label: "Creativity", value: 9 },
-  { label: "Travel", value: 8 },
   { label: "People", value: 9 },
+  { label: "Travel", value: 8 },
   { label: "Sleep Schedule", value: 3 },
   { label: "Fall Damage", value: 2 },
 ];
@@ -120,12 +120,12 @@ export default function CharacterWindow({ onClose, desktop }: CharacterWindowPro
               className="character-tabpanel"
             >
               <p className="character-window__bio">
-                I get really into things. If I have an idea or find something interesting, 
+                I get really into things! If I have an idea or find something interesting, 
                 there’s a good chance I’ll go down a rabbit hole trying to learn everything 
                 about it or build it myself.
                 <br></br><br></br>
                 Outside of code, I love travelling, spending time with the 
-                people I care about, and firing up the BBQ for everyone.
+                people I care about, and firing up the BBQ for everyone!
               </p>
             </div>
           )}

@@ -9,7 +9,7 @@ import puntaCanaImage from "../assets/destinations/dr.jpg";
 import boracayImage from "../assets/destinations/boracay.gif";
 import taipeiImage from "../assets/destinations/taiwan.gif";
 import japanImage from "../assets/destinations/japan.jpg";
-import seoulImage from "../assets/destinations/korea.jpg";
+import seoulImage from "../assets/destinations/korea.png";
 import baliImage from "../assets/destinations/bali.jpg";
 import sfImage from "../assets/destinations/sf.gif";
 import vegasImage from "../assets/destinations/vegas.png";
